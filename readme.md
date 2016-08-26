@@ -5,6 +5,7 @@
 # install
 
 `git clone https://github.com/huicloud/demo_python.git`
+
 `pip install -r requirements.txt`
 
 
