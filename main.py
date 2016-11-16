@@ -7,10 +7,10 @@ import snappy
 import io
 
 
-host = "http://v2.yundzh.com"
+host = "http://gw.yundzh.com"
 
 # replace to your's token
-token = "00000003:1472274774:9730aa8b8b4d36e3fc4752b2d6f54583c20ec2ba"
+token = "00000003:1474968294:796afc42045d9886729f8acd872fa2b0507590e9"
 
 def build_url(service, params, compress=False, binary=True):
     buff = []
@@ -49,9 +49,7 @@ def demo_get(service, params, compress=False):
     print("RESP:")
 
     if compress:
-        dst = io.BytesIO()
-        snappy.stream_decompress(urlopen(url), dst)
-        data = dst.getvalue()
+        data = snappy.decompress(urlopen(url).read())
     else:
         data = urlopen(url).read()
 
